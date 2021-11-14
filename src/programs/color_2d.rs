@@ -2,7 +2,7 @@ use wasm_bindgen::JsCast;
 use web_sys::WebGlRenderingContext as GL;
 use web_sys::*;
 use js_sys::WebAssembly;
-use super::super::common_funcs as cf;
+use super::super::common_funcs::{cf, matrixes};
 
 #[allow(dead_code)]
 pub struct Color2D {
@@ -65,7 +65,7 @@ impl Color2D {
         canvas_height: f32,
         canvas_width: f32,
     ) {
-        use cf::matrixes::*;
+        use matrixes::*;
 
         gl.use_program(Some(&self.program));
 

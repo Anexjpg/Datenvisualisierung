@@ -46,6 +46,7 @@ impl Client{
 
     pub fn update(&mut self, time: f32, height: f32, width: f32) -> Result<(), JsValue>{
         app_state::update_dynamic_data(time, height, width);
+        //log(&format!("{}", WheelEvent.delta_mode()));
         Ok(())
     }
 
@@ -53,6 +54,7 @@ impl Client{
         self.gl.clear(GL::COLOR_BUFFER_BIT | GL::DEPTH_BUFFER_BIT);
 
         let curr_state = app_state::get_curr_state();
+        //log(&format!("{}", curr_state.rotation_x_axis));
 
         self.program_globe.render(
             &self.gl,
@@ -64,6 +66,7 @@ impl Client{
             curr_state.canvas_width,
             curr_state.rotation_x_axis,
             curr_state.rotation_y_axis,
+            curr_state.mouse_scroll,
             //&common_funcs::matrixes::get_updated_3d_y_values(curr_state.time),
         );
     }
