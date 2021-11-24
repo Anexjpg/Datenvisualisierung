@@ -2,7 +2,7 @@ use wasm_bindgen::JsCast;
 use web_sys::WebGlRenderingContext as GL;
 use web_sys::*;
 use js_sys::WebAssembly;
-use super::super::common_funcs::{cf, matrixes};
+use super::common_funcs::{matrixes, cf};
 
 #[allow(dead_code)]
 pub struct Color2D {
