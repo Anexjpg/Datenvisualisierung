@@ -22,8 +22,10 @@ pub fn initialize_webgl_context() -> Result<GL, JsValue>{
     attach_mouse_up_handler(&canvas)?;
     attach_mouse_move_handler(&canvas)?;
 
-    gl.enable(GL::BLEND);
-    gl.blend_func(GL::SRC_ALPHA, GL::ONE_MINUS_SRC_ALPHA);
+    //gl.enable(GL::BLEND);
+    gl.enable(GL::DEPTH_TEST);
+    gl.depth_func(GL::LEQUAL); 
+    //gl.blend_func(GL::SRC_ALPHA, GL::ONE_MINUS_SRC_ALPHA);
     gl.clear_color(0., 0.0, 0.0, 1.0); //RGBA
     gl.clear_depth(1.);
 
