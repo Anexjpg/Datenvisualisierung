@@ -1,7 +1,6 @@
 use wasm_bindgen::{
     JsCast,
     JsValue,
-    prelude::*,
 };
 use {
     web_sys::*,
@@ -164,7 +163,7 @@ mod event_listener{
     }
 
     pub fn attach_video_reset_handler(target: &EventTarget) -> Result<(), JsValue> {
-        let listener = move |event: web_sys::Event| {
+        let listener = move |_event: web_sys::Event| {
             super::super::app_state::reset_video();
         };
 
