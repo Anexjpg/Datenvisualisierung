@@ -172,6 +172,19 @@ mod event_listener{
         listener.forget();
         Ok(())
     }
+
+    // pub fn create_timestamp_event(){
+    //     use std::time::*;
+    //     let event = web_sys::Event::new("timestamp");
+    //     let closure = move ||{
+    //         let mut now = SystemTime::now();
+    //         loop{
+    //             if now.elapsed().unwrap() >= Duration::from_millis(1000/24){
+    //                 event.
+    //             }
+    //         }
+    //     }
+    // }
     
 }
 
