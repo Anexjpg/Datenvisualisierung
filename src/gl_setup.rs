@@ -9,6 +9,8 @@ use {
 
 pub fn initialize_webgl_context() -> Result<GL, JsValue>{
     use event_listener::*;
+    use web_sys::*;
+    use wasm_bindgen::prelude::*;
 
     let window = window().unwrap();
     let document = window.document().unwrap();
@@ -16,10 +18,12 @@ pub fn initialize_webgl_context() -> Result<GL, JsValue>{
     let canvas: web_sys::HtmlCanvasElement = canvas.dyn_into::<web_sys::HtmlCanvasElement>()?;
     let gl: GL = canvas.get_context("webgl")?.unwrap().dyn_into()?;
 
+
     attach_mouse_scroll_handler(&canvas)?;
     attach_mouse_down_handler(&canvas)?;
     attach_mouse_up_handler(&canvas)?;
     attach_mouse_move_handler(&canvas)?;
+
 
     gl.clear_color(0., 0.0, 0.0, 1.0); //RGBA
     gl.clear_depth(1.);
@@ -172,19 +176,6 @@ mod event_listener{
         listener.forget();
         Ok(())
     }
-
-    // pub fn create_timestamp_event(){
-    //     use std::time::*;
-    //     let event = web_sys::Event::new("timestamp");
-    //     let closure = move ||{
-    //         let mut now = SystemTime::now();
-    //         loop{
-    //             if now.elapsed().unwrap() >= Duration::from_millis(1000/24){
-    //                 event.
-    //             }
-    //         }
-    //     }
-    // }
     
 }
 
